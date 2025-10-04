@@ -1,6 +1,6 @@
 services:
   db:
-    container_name: postgres
+    container_name: waste-track-db
     image: postgres:17.5
     restart: always
     shm_size: 128mb
