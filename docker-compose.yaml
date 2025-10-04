@@ -1,0 +1,24 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:17.5
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: scx123456
+      POSTGRES_USER: postgres-user
+      POSTGRES_DB: postgres-db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - 5405:5432
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
+    driver: local
